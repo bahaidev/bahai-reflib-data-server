@@ -6,16 +6,45 @@ module.exports = {
     document: 'off',
     fetch: 'off'
   },
+  overrides: [
+    {
+      files: 'public/**',
+      extends: 'ash-nazg/sauron-node-overrides',
+      plugins: ['html'],
+      env: {
+        browser: true
+      },
+      globals: {
+        document: true,
+        fetch: true
+      }
+    },
+    {
+      files: '*.uce',
+      rules: {
+        'import/no-anonymous-default-export': 'off'
+      }
+    }
+  ],
   settings: {
+    'html/html-extensions': ['.html', '.htm', '.uce'],
     polyfills: [
       'console',
+      'CustomEvent',
+      'document.body',
+      'document.querySelector',
+      'Event',
+      'fetch',
       'JSON',
+      'location.href',
       'Map',
       'Number.isNaN',
       'Number.parseInt',
       'Object.entries',
       'Object.fromEntries',
-      'Promise'
+      'Promise',
+      'Set',
+      'URLSearchParams'
     ]
   },
   parserOptions: {

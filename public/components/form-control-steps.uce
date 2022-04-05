@@ -1,0 +1,75 @@
+<form-control-steps shadow>
+  {{error}}
+  {{steps}}
+</form-control-steps>
+
+<style shadow>
+  /* Todo: Figure out why not working? */
+  ::slotted(*) {
+    /* not apparently working */
+    font-size: 30pt;
+    background-color: yellow;
+  }
+  :not(::slotted([data-default])) {
+    display: none;
+  }
+
+  :host label[data-default] {
+    /* background-color: red; */
+  }
+  :host label:not([data-default]) {
+    display: none;
+    /* background-color: blue; */
+  }
+</style>
+
+<script type="module">
+import {slot} from '@uce';
+
+export default {
+  setup (elem) {
+    const {step: steps, error} = slot(elem);
+    steps.forEach((step, i) => {
+      const ev = step.getAttribute('trigger') ||
+        elem.getAttribute('default-trigger');
+      step.addEventListener(ev, ({target}) => {
+        // Todo: Check instead whether the form control is valid
+        // if (!target.value) {
+        //   return;
+        // }
+        const nextStep = steps[i + 1];
+        if (!nextStep) {
+          return;
+        }
+
+        // Besides requiring extra logic, this was too difficult on the
+        //  instances to control the timing of display especially async;
+        //  they can instead listen for the trigger and act as they wish
+        /*
+        // Avoid flickering; we don't want to temporarily show if a
+        //   triggering event is going to hide shortly after
+        nextStep.triggering = true;
+        requestAnimationFrame(() => {
+          if (!nextStep.squelched) {
+            nextStep.style.display = 'initial';
+          }
+          nextStep.squelched = false;
+          nextStep.triggering = false;
+        });
+        */
+
+        // If earlier one reactivated ensure the others are hidden
+        steps.slice(i + 1).forEach((futureStep) => {
+          futureStep.style.display = 'none';
+        });
+
+        const e = new CustomEvent('trigger-step', {
+          detail: target
+        });
+        nextStep.dispatchEvent(e);
+      }, true);
+    });
+    return {steps, error};
+  }
+};
+</script>

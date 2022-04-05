@@ -4,40 +4,86 @@ import {
   getInfoForUrl,
   getIdForUrl,
   getInfoForId,
-  getUrlForId
+  getUrlForId,
+  getWorkNames,
+  getSectionNamesForWork,
+  getUrlForWork,
+  getSubsectionUrlForWork,
+  getUrlForWorkAndSection,
+  getParagraphsForWorkAndSection
 } from 'bahai-reflib-data';
 
 const workSectionAndParagraphForId = async (req, res) => {
   const workSectionAndParagraph = await getWorkSectionAndParagraphForId(
-    req.query.id
+    req.query.id, req.query.language
   );
   res.json(workSectionAndParagraph ?? null);
 };
 
 const idForWorkSectionAndParagraph = async (req, res) => {
-  const {work, section, paragraph} = req.query;
-  const id = await getIdForWorkSectionAndParagraph(work, section, paragraph);
+  const {work, section, paragraph, language} = req.query;
+  const id = await getIdForWorkSectionAndParagraph(
+    work, section, paragraph, language
+  );
   res.json(id ?? null);
 };
 
 const infoForUrl = async (req, res) => {
-  const info = await getInfoForUrl(req.query.url);
+  const info = await getInfoForUrl(req.query.url, req.query.language);
   res.json(info ?? null);
 };
 
 const idForUrl = async (req, res) => {
-  const id = await getIdForUrl(req.query.url);
+  const id = await getIdForUrl(req.query.url, req.query.language);
   res.json(id ?? null);
 };
 
 const infoForId = async (req, res) => {
-  const info = await getInfoForId(req.query.id);
+  const info = await getInfoForId(req.query.id, req.query.language);
   res.json(info ?? null);
 };
 
 const urlForId = async (req, res) => {
-  const url = await getUrlForId(req.query.id);
+  const url = await getUrlForId(req.query.id, req.query.language);
   res.json(url ?? null);
+};
+
+const workNames = async (req, res) => {
+  const namesOfWorks = await getWorkNames(
+    req.query.language
+  );
+  res.json(namesOfWorks ?? []);
+};
+
+const sectionNamesForWork = async (req, res) => {
+  const sectionNames = await getSectionNamesForWork(
+    req.query.work, req.query.language
+  );
+  res.json(sectionNames || []);
+};
+
+const urlForWork = async (req, res) => {
+  const url = await getUrlForWork(req.query.work, req.query.language);
+  res.json(url || null);
+};
+
+const subsectionUrlForWork = async (req, res) => {
+  const url = await getSubsectionUrlForWork(req.query.work, req.query.language);
+  res.json(url || null);
+};
+
+const urlForWorkAndSection = async (req, res) => {
+  const url = await getUrlForWorkAndSection(
+    req.query.work, req.query.section, req.query.language
+  );
+  res.json(url || null);
+};
+
+const paragraphsForWorkAndSection = async (req, res) => {
+  const paragraphs = await getParagraphsForWorkAndSection(
+    req.query.work, req.query.section, req.query.language
+  );
+  res.json(paragraphs || []);
 };
 
 export {
@@ -46,5 +92,11 @@ export {
   infoForUrl,
   idForUrl,
   infoForId,
-  urlForId
+  urlForId,
+  workNames,
+  sectionNamesForWork,
+  urlForWork,
+  subsectionUrlForWork,
+  urlForWorkAndSection,
+  paragraphsForWorkAndSection
 };

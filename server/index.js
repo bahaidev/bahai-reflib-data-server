@@ -6,18 +6,23 @@ import routes from './routes.js';
  * @param {object} cfg
  * @param {string} cfg.statik
  * @param {object} cfg.statikOptions
+ * @param {object} [cfg.app=express()]
  * @returns {ExpressApp}
  */
 function createServer ({
-  statik, statikOptions
+  statik, statikOptions, app = express()
 } = {}) {
-  const app = express();
-
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
 
   if (statik) {
-    app.use(express.static(statik, statikOptions));
+    if (Array.isArray(statik)) {
+      statik.forEach((rootDir) => {
+        app.use(express.static(rootDir, statikOptions));
+      });
+    } else {
+      app.use(express.static(statik, statikOptions));
+    }
   }
 
   routes(app); // register the routes

@@ -4,7 +4,13 @@ import {
   infoForUrl,
   idForUrl,
   infoForId,
-  urlForId
+  urlForId,
+  workNames,
+  sectionNamesForWork,
+  urlForWork,
+  subsectionUrlForWork,
+  urlForWorkAndSection,
+  paragraphsForWorkAndSection
 } from './controllers.js';
 
 /**
@@ -18,7 +24,13 @@ function routes (app) {
     idForUrl,
     infoForUrl,
     urlForId,
-    infoForId
+    infoForId,
+    workNames,
+    sectionNamesForWork,
+    urlForWork,
+    subsectionUrlForWork,
+    urlForWorkAndSection,
+    paragraphsForWorkAndSection
   });
 
   routeMappings.forEach(([route, router]) => {

@@ -7,7 +7,7 @@
   "license": "MIT",
   "keywords": [],
   "type": "module",
-  "main": "src/index.js",
+  "main": "./src/index.js",
   "bin": {
     "reflib": "./server.js"
   },
@@ -15,8 +15,11 @@
     "cover 100%"
   ],
   "scripts": {
+    "copy": "cp node_modules/uhtml/esm.js public/vendor/uhtml/esm.js",
+    "build-import-map": "echo 'Might use this to support npm package imports; needs package lock' && npm i && npx importly < package-lock.json > importmap.json",
+    "rollup": "rollup -c",
     "start": "./server.js",
-    "eslint": "eslint --ext=js,cjs,mjs,md,html .",
+    "eslint": "eslint --ext=js,cjs,mjs,md,html,uce .",
     "lint": "npm run eslint",
     "mocha": "mocha",
     "test": "c8 npm run mocha"
@@ -34,26 +37,31 @@
   },
   "devDependencies": {
     "@brettz9/eslint-plugin": "^1.0.4",
-    "eslint": "^8.12.0",
-    "eslint-config-ash-nazg": "32.12.0",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "eslint": "^8.13.0",
+    "eslint-config-ash-nazg": "32.13.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-array-func": "^3.1.7",
     "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-html": "^6.2.0",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsdoc": "^38.1.6",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.0.1",
     "eslint-plugin-markdown": "^2.2.1",
     "eslint-plugin-no-unsanitized": "^4.0.1",
     "eslint-plugin-no-use-extend-native": "^0.5.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-sonarjs": "^0.13.0",
-    "eslint-plugin-unicorn": "^42.0.0"
+    "eslint-plugin-unicorn": "^42.0.0",
+    "rollup": "^2.70.1",
+    "uhtml": "^2.8.1"
   },
   "dependencies": {
-    "bahai-reflib-data": "^0.3.1",
+    "bahai-reflib-data": "^0.8.0",
     "body-parser": "^1.20.0",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "uce-loader": "^2.0.0",
+    "uce-template": "^0.7.1"
   }
 }

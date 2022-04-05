@@ -1,0 +1,182 @@
+<choose-work-section-paragraph>
+  <form-control-steps default-trigger="change">
+    <label slot="step" data-default="true" onmissing-options="{{badLoadWorks}}">
+      <div class="errorDisplay"></div>
+      <fetch-select class="chooseWork" url="/workNames">
+        <option value="">(Choose work)</option>
+      </fetch-select>
+    </label>
+
+    <label slot="step" ontrigger-step={{setupSection}} onmissing-options="{{noSectionsForWork}}">
+      <div class="errorDisplay"></div>
+      <fetch-select class="chooseSection" url="{{this.sectionsForWorkURL}}">
+        <option value="">(Choose section)</option>
+      </fetch-select>
+    </label>
+
+    <label slot="step" ontrigger-step={{setupParagraph}} trigger="id-display">
+      <div class="errorDisplay"></div>
+      <datalist id="paragraphChoices"></datalist>
+      <input size="30" list="paragraphChoices" onchange={{redirectOrDisplay}} class="chooseParagraph" placeholder="Paragraph number, e.g., &quot;5&quot;" />
+    </label>
+
+    <label slot="step" ontrigger-step={{setupIDDisplay}}>
+      <div class="errorDisplay"></div>
+      <div class="idDisplay"></div>
+    </label>
+  </form-control-steps>
+</choose-work-section-paragraph>
+
+<script type="module">
+import '../components/form-control-steps.uce';
+import '../components/fetch-select.uce';
+
+export default {
+  props: {
+    work: '',
+    sectionsForWorkURL: ''
+  },
+  setup (elem) {
+    const sectionsForWorkURL = () => {
+      return '/sectionNamesForWork?work=' + encodeURIComponent(elem.work);
+    };
+    const displayError = (slot, message, hideSelector = 'fetch-select') => {
+      const b = document.createElement('b');
+      b.textContent = message +
+        ' Try to refresh upon a good connection.';
+      const errorDisplay = slot.querySelector('.errorDisplay');
+
+      // Hide current select; subsequent should already be hidden
+      slot.querySelector(hideSelector).style.display = 'none';
+      // But ensure our slot is showing
+      slot.style.display = 'initial';
+
+      errorDisplay.textContent = '';
+      errorDisplay.append(b);
+    };
+
+    return {
+      async setupSection ({detail}) {
+        elem.work = detail.value;
+        elem.sectionsForWorkURL = sectionsForWorkURL();
+        const fetchSelect = this.querySelector('fetch-select');
+        fetchSelect.url = elem.sectionsForWorkURL;
+
+        const ok = await fetchSelect.update();
+        if (!ok) {
+          // Errors handled in `noSectionsForWork` by triggered event
+          return;
+        }
+        this.style.display = 'initial';
+      },
+      async setupParagraph ({detail}) {
+        elem.section = detail.value;
+        // Could instead do a URL-driven input box like we do for
+        //   URL-driving select
+        const {work, section} = elem;
+        const paragraphs = await (await fetch(
+          `paragraphsForWorkAndSection?${new URLSearchParams({
+            work,
+            section
+          })}`
+        )).json();
+        if (!paragraphs.length) {
+          const url = await (await fetch(
+            `urlForWorkAndSection?${new URLSearchParams({
+              work,
+              section
+            })}`
+          )).json();
+          if (!url) {
+            displayError(
+              this,
+              'No URL found despite this having a work and section.',
+              'input'
+            );
+            return;
+          }
+          location.href = url;
+          return;
+        }
+
+        this.style.display = 'initial';
+        this.querySelector('datalist#paragraphChoices').append(
+          ...paragraphs.map((paragraph) => {
+            const option = document.createElement('option');
+            option.textContent = paragraph;
+            return option;
+          })
+        );
+      },
+      async redirectOrDisplay (e) {
+        const {work, section} = elem;
+        const paragraph = this.value;
+
+        const resp = await fetch(
+          `/idForWorkSectionAndParagraph?${new URLSearchParams({
+            work,
+            section,
+            paragraph
+          })}`
+        );
+        const id = await resp.json();
+        if (!id) {
+          displayError(
+            this.parentNode,
+            'No id found for work section and paragraph.',
+            'input'
+          );
+          return;
+        }
+
+        const redirect = elem.hasAttribute('redirect');
+        if (redirect) {
+          location.href = `https://bahai.org/r/${id}`;
+        } else {
+          elem.id = id;
+          this.parentNode.dispatchEvent(new Event('id-display'));
+          e.preventDefault();
+        }
+      },
+      setupIDDisplay () {
+        const idDisplay = this.querySelector('.idDisplay');
+        idDisplay.textContent = '';
+        const b = document.createElement('b');
+        b.textContent = 'ID';
+        const a = document.createElement('a');
+        const {id} = elem;
+        a.href = `https://bahai.org/r/${id}`;
+        a.textContent = id;
+        idDisplay.append(b, `: `, a);
+        this.style.display = 'initial';
+      },
+      badLoadWorks () {
+        displayError(this, 'Works did not load.');
+      },
+
+      async noSectionsForWork () {
+        let url = await (
+          await fetch(`/subsectionUrlForWork?${new URLSearchParams({
+            work: elem.work
+          })}`)
+        ).json();
+
+        if (!url) {
+          url = await (
+            await fetch(`/urlForWork?${new URLSearchParams({
+              work: elem.work
+            })}`)
+          ).json();
+        }
+
+        if (!url) {
+          displayError(this, 'No URL found for work.');
+          return;
+        }
+
+        location.href = url;
+      }
+    };
+  }
+};
+</script>

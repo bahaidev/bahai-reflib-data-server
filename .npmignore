@@ -1,0 +1,4 @@
+.idea
+coverage
+test
+pnpm-lock.yaml

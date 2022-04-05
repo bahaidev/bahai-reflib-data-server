@@ -4,7 +4,9 @@ import createServer from './server/index.js';
 
 const port = process.argv[2] || 1844;
 
-const app = createServer();
+const app = createServer({
+  statik: 'public'
+});
 
 app.listen(port);
 

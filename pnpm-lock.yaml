@@ -2,10 +2,10 @@ lockfileVersion: 5.3
 
 specifiers:
   '@brettz9/eslint-plugin': ^1.0.4
-  bahai-reflib-data: ^0.3.0
+  bahai-reflib-data: ^0.3.1
   body-parser: ^1.20.0
   eslint: ^8.12.0
-  eslint-config-ash-nazg: 32.7.1
+  eslint-config-ash-nazg: 32.12.0
   eslint-config-standard: ^16.0.3
   eslint-plugin-array-func: ^3.1.7
   eslint-plugin-compat: ^4.0.2
@@ -23,14 +23,14 @@ specifiers:
   express: ^4.17.3
 
 dependencies:
-  bahai-reflib-data: 0.3.0
+  bahai-reflib-data: 0.3.1
   body-parser: 1.20.0
   express: 4.17.3
 
 devDependencies:
   '@brettz9/eslint-plugin': 1.0.4_eslint@8.12.0
   eslint: 8.12.0
-  eslint-config-ash-nazg: 32.7.1_d7b1b2bfa805725d9cc3fe21ce1c7f15
+  eslint-config-ash-nazg: 32.12.0_d7b1b2bfa805725d9cc3fe21ce1c7f15
   eslint-config-standard: 16.0.3_146d38e67599a909c4e567a04144449b
   eslint-plugin-array-func: 3.1.7_eslint@8.12.0
   eslint-plugin-compat: 4.0.2_eslint@8.12.0
@@ -229,8 +229,8 @@ packages:
       '@mdn/browser-compat-data': 3.3.14
     dev: true
 
-  /bahai-reflib-data/0.3.0:
-    resolution: {integrity: sha512-03mIH5dMe8eGgIjIO+VPSLcc0t2CykPQcnPXLj2YgzHf4lHl+ALfJ3W/YLoDO+DoLrG5CLdGQdOv6uUeXVB2+w==}
+  /bahai-reflib-data/0.3.1:
+    resolution: {integrity: sha512-ZPctIFIZFf5LtOJeRiUkOWsRJm+Ktqh0E2dZc+Yia6XqmQTOYyXhkQ0fRv3Tae/V98lwUNOP7IZx5Wwu3c4wHQ==}
     engines: {node: '>=12.0.0'}
     dev: false
 
@@ -597,26 +597,26 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-ash-nazg/32.7.1_d7b1b2bfa805725d9cc3fe21ce1c7f15:
-    resolution: {integrity: sha512-Yfveb972lZeclWxKqFP6Y3mTWyWZBjhet+5bU7TPdCzTpAzJG0UdUnzSfxqjaO2M7tsM6YesLdeyvFgk3xkq0A==}
+  /eslint-config-ash-nazg/32.12.0_d7b1b2bfa805725d9cc3fe21ce1c7f15:
+    resolution: {integrity: sha512-q77/T77G68rpnUti7fiUlK0mExI4ETujfwSMQkn3D4VktRgSVmKhEaKsSSF8oqBtJ7Ssk4FA7CLrAycMUa0oRg==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
       '@brettz9/eslint-plugin': ^1.0.4
-      eslint: ^8.11.0
+      eslint: ^8.12.0
       eslint-config-standard: ^16.0.3
       eslint-plugin-array-func: ^3.1.7
       eslint-plugin-compat: ^4.0.2
       eslint-plugin-eslint-comments: ^3.2.0
       eslint-plugin-html: ^6.2.0
       eslint-plugin-import: ^2.25.4
-      eslint-plugin-jsdoc: ^38.0.4
+      eslint-plugin-jsdoc: ^38.1.6
       eslint-plugin-markdown: ^2.2.1
       eslint-plugin-no-unsanitized: ^4.0.1
       eslint-plugin-no-use-extend-native: ^0.5.0
       eslint-plugin-node: ^11.1.0
       eslint-plugin-promise: ^6.0.0
-      eslint-plugin-sonarjs: ^0.12.0
-      eslint-plugin-unicorn: ^41.0.0
+      eslint-plugin-sonarjs: ^0.13.0
+      eslint-plugin-unicorn: ^42.0.0
     dependencies:
       '@brettz9/eslint-plugin': 1.0.4_eslint@8.12.0
       eslint: 8.12.0

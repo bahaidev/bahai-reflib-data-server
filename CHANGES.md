@@ -1,5 +1,10 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.3.0
+
+- fix: API relative paths
+- feat: add `urlRelativePath` server option; auto-apply static
+
 ## 0.2.0
 
 - feat: create web app

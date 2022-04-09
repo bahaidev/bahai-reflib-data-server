@@ -15,9 +15,10 @@ import {
 
 /**
  * @param {ExpressApp} app
+ * @param {string} [basePath=""]
  * @returns {void}
  */
-function routes (app) {
+function routes (app, basePath = '') {
   const routeMappings = Object.entries({
     workSectionAndParagraphForId,
     idForWorkSectionAndParagraph,
@@ -33,8 +34,11 @@ function routes (app) {
     paragraphsForWorkAndSection
   });
 
+  const base = '/' + basePath.replace(/(?<nonslash>[^/])$/u, '$<nonslash>/');
   routeMappings.forEach(([route, router]) => {
-    app.route('/' + route).get(router);
+    app.route(
+      base + route
+    ).get(router);
   });
 }
 

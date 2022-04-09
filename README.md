@@ -11,10 +11,7 @@ just an individual effort not related to the site.
 
 ## To-dos
 
-1. Put online the **JSON service** (using, e.g., for Bahaipedia and Bahai9
-    links) and link to it here
-1. Put online as a **web app**, allowing a series of pull-downs for work,
-    section, and paragraph number to get the ID and link, and link to it here.
+1. Link to web-service/web app once displayed
 
 ## Potential to-dos
 

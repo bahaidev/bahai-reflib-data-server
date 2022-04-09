@@ -2,7 +2,7 @@
   <form-control-steps default-trigger="change">
     <label slot="step" data-default="true" onmissing-options="{{badLoadWorks}}">
       <div class="errorDisplay"></div>
-      <fetch-select class="chooseWork" url="/workNames">
+      <fetch-select class="chooseWork" url="./workNames">
         <option value="">(Choose work)</option>
       </fetch-select>
     </label>
@@ -38,7 +38,7 @@ export default {
   },
   setup (elem) {
     const sectionsForWorkURL = () => {
-      return '/sectionNamesForWork?work=' + encodeURIComponent(elem.work);
+      return './sectionNamesForWork?work=' + encodeURIComponent(elem.work);
     };
     const displayError = (slot, message, hideSelector = 'fetch-select') => {
       const b = document.createElement('b');
@@ -113,7 +113,7 @@ export default {
         const paragraph = this.value;
 
         const resp = await fetch(
-          `/idForWorkSectionAndParagraph?${new URLSearchParams({
+          `./idForWorkSectionAndParagraph?${new URLSearchParams({
             work,
             section,
             paragraph
@@ -156,14 +156,14 @@ export default {
 
       async noSectionsForWork () {
         let url = await (
-          await fetch(`/subsectionUrlForWork?${new URLSearchParams({
+          await fetch(`./subsectionUrlForWork?${new URLSearchParams({
             work: elem.work
           })}`)
         ).json();
 
         if (!url) {
           url = await (
-            await fetch(`/urlForWork?${new URLSearchParams({
+            await fetch(`./urlForWork?${new URLSearchParams({
               work: elem.work
             })}`)
           ).json();

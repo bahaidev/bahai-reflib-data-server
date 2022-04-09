@@ -1,5 +1,9 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.4.0
+
+- feat: resume allowing `statik` as being optional
+
 ## 0.3.0
 
 - fix: API relative paths

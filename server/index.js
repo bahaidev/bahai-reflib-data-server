@@ -16,12 +16,14 @@ function createServer ({
   app.use(bodyParser.urlencoded({extended: true}));
   app.use(bodyParser.json());
 
-  if (Array.isArray(statik)) {
-    statik.forEach((rootDir) => {
-      app.use(express.static(rootDir, statikOptions));
-    });
-  } else {
-    app.use(express.static(statik, statikOptions));
+  if (statik) {
+    if (Array.isArray(statik)) {
+      statik.forEach((rootDir) => {
+        app.use(express.static(rootDir, statikOptions));
+      });
+    } else {
+      app.use(express.static(statik, statikOptions));
+    }
   }
 
   routes(app, urlRelativePath); // register the routes

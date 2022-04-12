@@ -1,5 +1,9 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.4.2
+
+- docs: indicate web service/web app URL
+
 ## 0.4.1
 
 - fix: ensure that when getting work, section, and link, the link

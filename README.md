@@ -9,9 +9,8 @@ the data.
 Note that although this uses data from the Bahá'í Reference Library, this is
 just an individual effort not related to the site.
 
-## To-dos
-
-1. Link to web-service/web app once displayed
+The web-service and web app is currently available at
+<https://bahai-browser.org/bahai-reflib-data-server/>.
 
 ## Potential to-dos
 

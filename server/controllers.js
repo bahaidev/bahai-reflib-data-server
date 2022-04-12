@@ -1,4 +1,5 @@
 import {
+  getFullInfoForUrl,
   getWorkSectionAndParagraphForId,
   getIdForWorkSectionAndParagraph,
   getInfoForUrl,
@@ -12,6 +13,11 @@ import {
   getUrlForWorkAndSection,
   getParagraphsForWorkAndSection
 } from 'bahai-reflib-data';
+
+const fullInfoForUrl = async (req, res) => {
+  const fullInfo = await getFullInfoForUrl(req.query.url);
+  res.json(fullInfo || null);
+};
 
 const workSectionAndParagraphForId = async (req, res) => {
   const workSectionAndParagraph = await getWorkSectionAndParagraphForId(
@@ -87,6 +93,7 @@ const paragraphsForWorkAndSection = async (req, res) => {
 };
 
 export {
+  fullInfoForUrl,
   workSectionAndParagraphForId,
   idForWorkSectionAndParagraph,
   infoForUrl,

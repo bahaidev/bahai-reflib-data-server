@@ -2,6 +2,8 @@ import {render, html} from './vendor/uhtml/esm.js';
 
 import workSectionAndParagraphForId from
   './templates/workSectionAndParagraphForId.js';
+import fullInfoForUrl from
+  './templates/fullInfoForUrl.js';
 import infoForUrl from
   './templates/infoForUrl.js';
 import infoForId from
@@ -37,6 +39,8 @@ render(document.body, html`
     ${workSectionAndParagraphForId}
 
     ${infoForUrl}
+
+    ${fullInfoForUrl}
 
     ${infoForId}
 

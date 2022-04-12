@@ -1,4 +1,5 @@
 import {
+  fullInfoForUrl,
   workSectionAndParagraphForId,
   idForWorkSectionAndParagraph,
   infoForUrl,
@@ -20,6 +21,7 @@ import {
  */
 function routes (app, basePath = '') {
   const routeMappings = Object.entries({
+    fullInfoForUrl,
     workSectionAndParagraphForId,
     idForWorkSectionAndParagraph,
     idForUrl,

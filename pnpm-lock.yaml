@@ -2,8 +2,8 @@ lockfileVersion: 5.3
 
 specifiers:
   '@brettz9/eslint-plugin': ^1.0.4
-  '@rollup/plugin-node-resolve': ^13.1.3
-  bahai-reflib-data: ^0.8.0
+  '@rollup/plugin-node-resolve': ^13.2.0
+  bahai-reflib-data: ^0.9.2
   body-parser: ^1.20.0
   eslint: ^8.13.0
   eslint-config-ash-nazg: 32.13.0
@@ -13,7 +13,7 @@ specifiers:
   eslint-plugin-eslint-comments: ^3.2.0
   eslint-plugin-html: ^6.2.0
   eslint-plugin-import: ^2.26.0
-  eslint-plugin-jsdoc: ^39.0.1
+  eslint-plugin-jsdoc: ^39.1.1
   eslint-plugin-markdown: ^2.2.1
   eslint-plugin-no-unsanitized: ^4.0.1
   eslint-plugin-no-use-extend-native: ^0.5.0
@@ -28,7 +28,7 @@ specifiers:
   uhtml: ^2.8.1
 
 dependencies:
-  bahai-reflib-data: 0.8.0
+  bahai-reflib-data: 0.9.2
   body-parser: 1.20.0
   express: 4.17.3
   uce-loader: 2.0.0
@@ -36,16 +36,16 @@ dependencies:
 
 devDependencies:
   '@brettz9/eslint-plugin': 1.0.4_eslint@8.13.0
-  '@rollup/plugin-node-resolve': 13.1.3_rollup@2.70.1
+  '@rollup/plugin-node-resolve': 13.2.0_rollup@2.70.1
   eslint: 8.13.0
-  eslint-config-ash-nazg: 32.13.0_6e5482d90efcec6941bc76506b3f3a82
+  eslint-config-ash-nazg: 32.13.0_edb247ffd1d163d3dd543338412bf0af
   eslint-config-standard: 16.0.3_4e3767bb061a43bc3978ec6596bc3350
   eslint-plugin-array-func: 3.1.7_eslint@8.13.0
   eslint-plugin-compat: 4.0.2_eslint@8.13.0
   eslint-plugin-eslint-comments: 3.2.0_eslint@8.13.0
   eslint-plugin-html: 6.2.0
   eslint-plugin-import: 2.26.0_eslint@8.13.0
-  eslint-plugin-jsdoc: 39.0.1_eslint@8.13.0
+  eslint-plugin-jsdoc: 39.1.1_eslint@8.13.0
   eslint-plugin-markdown: 2.2.1_eslint@8.13.0
   eslint-plugin-no-unsanitized: 4.0.1_eslint@8.13.0
   eslint-plugin-no-use-extend-native: 0.5.0
@@ -1261,8 +1261,8 @@ packages:
     resolution: {integrity: sha512-pndsgd4jXIGcgWKPXkN5AL1rdwhgQpLXWyK25jb42SUaeujs/GhRK8+Q4W97RTiCirf/DoaahcTI/3Op6+/gfw==}
     dev: true
 
-  /@rollup/plugin-node-resolve/13.1.3_rollup@2.70.1:
-    resolution: {integrity: sha512-BdxNk+LtmElRo5d06MGY4zoepyrXX1tkzX2hrnPEZ53k78GuOMWLqmJDGIIOPwVRIFZrLQOo+Yr6KtCuLIA0AQ==}
+  /@rollup/plugin-node-resolve/13.2.0_rollup@2.70.1:
+    resolution: {integrity: sha512-GuUIUyIKq7EjQxB51XSn6zPHYo+cILQQBYOGYvFFNxws2OVOqCBShAoof2hFrV8bAZzZGDBDQ8m2iUt8SLOUkg==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
       rollup: ^2.42.0
@@ -1458,8 +1458,8 @@ packages:
       - supports-color
     dev: false
 
-  /bahai-reflib-data/0.8.0:
-    resolution: {integrity: sha512-Y3ZeTX+Il5hn5ZqgVTmR3rNsCXkzv9iVlIUoq6lZBGRcRI8xXnAPVoJoA2kc8Qu441ZGlRiVAqWnulgBulYkBA==}
+  /bahai-reflib-data/0.9.2:
+    resolution: {integrity: sha512-9VtqdQCVosAixURVOcT2CmEzQha65b+7/hoI78I8qrtcB6QVwMLE25QT2c5ua61AGpL7N1sWNRqjikR89wu7Hg==}
     engines: {node: '>=12.0.0'}
     dependencies:
       file-fetch: 1.7.0
@@ -1895,7 +1895,7 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-ash-nazg/32.13.0_6e5482d90efcec6941bc76506b3f3a82:
+  /eslint-config-ash-nazg/32.13.0_edb247ffd1d163d3dd543338412bf0af:
     resolution: {integrity: sha512-txGYmHwYTRIfN9+eaaXQqY0U39TUqvTumNd44h4toDyi/khbla0S2tTxqyKmVGEAIjB+qbiW/dM6hblne5tqnQ==}
     engines: {node: '>=10.0.0'}
     peerDependencies:
@@ -1924,7 +1924,7 @@ packages:
       eslint-plugin-eslint-comments: 3.2.0_eslint@8.13.0
       eslint-plugin-html: 6.2.0
       eslint-plugin-import: 2.26.0_eslint@8.13.0
-      eslint-plugin-jsdoc: 39.0.1_eslint@8.13.0
+      eslint-plugin-jsdoc: 39.1.1_eslint@8.13.0
       eslint-plugin-markdown: 2.2.1_eslint@8.13.0
       eslint-plugin-no-unsanitized: 4.0.1_eslint@8.13.0
       eslint-plugin-no-use-extend-native: 0.5.0
@@ -2040,8 +2040,8 @@ packages:
       tsconfig-paths: 3.14.1
     dev: true
 
-  /eslint-plugin-jsdoc/39.0.1_eslint@8.13.0:
-    resolution: {integrity: sha512-lNPnz5DlmLekkrVFM66TE5VQwceDu420tWW4CNYc/BMoKDJuvTTzmu/djK75lr9d8PLVoPDnyexVV7Pp59rOKg==}
+  /eslint-plugin-jsdoc/39.1.1_eslint@8.13.0:
+    resolution: {integrity: sha512-sT2yhYh9PFIkvi8Sgz2gVBXF0hbD9Z7iZZBlZdCMk0SIhEVWREa9RXokF4S8tJ9BBsER1GNNToDkRok4uVmmig==}
     engines: {node: ^14 || ^16 || ^17}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0
@@ -2899,6 +2899,7 @@ packages:
   /lru-cache/7.8.0:
     resolution: {integrity: sha512-AmXqneQZL3KZMIgBpaPTeI6pfwh+xQ2vutMsyqOu1TBdEXFZgpG/80wuJ531w2ZN7TI0/oc8CPxzh/DKQudZqg==}
     engines: {node: '>=12'}
+    deprecated: Please update to latest patch version to fix memory leak https://github.com/isaacs/node-lru-cache/issues/227
     dev: true
 
   /mdast-util-from-markdown/0.8.5:

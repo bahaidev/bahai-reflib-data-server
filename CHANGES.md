@@ -1,5 +1,10 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.4.1
+
+- fix: ensure that when getting work, section, and link, the link
+    shows up as such
+
 ## 0.4.0
 
 - feat: resume allowing `statik` as being optional

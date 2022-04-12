@@ -26,7 +26,7 @@ const workSectionAndParagraphForId = html`
         <li><b>Work</b>: ${work}</li>
         <li><b>Section</b>: ${section === '$main' ? '(Main)' : section}</li>
         <li><b>Paragraph</b>:
-          ${paragraph ? `<a href="${href}">${paragraph}</a>` : '(None)'}
+          ${paragraph ? html`<a href="${href}">${paragraph}</a>` : '(None)'}
         </li>
       </ul>
 `);

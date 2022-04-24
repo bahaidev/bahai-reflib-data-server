@@ -1,5 +1,10 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.5.1
+
+- fix: update `bahai-reflib-data`
+- chore: update devDeps.
+
 ## 0.5.0
 
 - feat: support getting full info about URL (showing sample template)

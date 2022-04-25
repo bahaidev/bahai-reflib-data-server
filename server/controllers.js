@@ -8,10 +8,12 @@ import {
   getUrlForId,
   getWorkNames,
   getSectionNamesForWork,
+  getSectionInfoForWork,
   getUrlForWork,
   getSubsectionUrlForWork,
   getUrlForWorkAndSection,
-  getParagraphsForWorkAndSection
+  getParagraphsForWorkAndSection,
+  getParagraphsForSectionId
 } from 'bahai-reflib-data';
 
 const fullInfoForUrl = async (req, res) => {
@@ -68,6 +70,22 @@ const sectionNamesForWork = async (req, res) => {
   res.json(sectionNames || []);
 };
 
+const sectionInfoForWork = async (req, res) => {
+  const sectionInfos = await getSectionInfoForWork(
+    req.query.work, req.query.language
+  );
+  res.json(sectionInfos || []);
+};
+
+const sectionIdAndNameForWork = async (req, res) => {
+  const sectionIDs = (await getSectionInfoForWork(
+    req.query.work, req.query.language
+  )).map(({id, title}) => {
+    return [id, title];
+  });
+  res.json(sectionIDs || []);
+};
+
 const urlForWork = async (req, res) => {
   const url = await getUrlForWork(req.query.work, req.query.language);
   res.json(url || null);
@@ -92,6 +110,13 @@ const paragraphsForWorkAndSection = async (req, res) => {
   res.json(paragraphs || []);
 };
 
+const paragraphsForSectionId = async (req, res) => {
+  const paragraphs = await getParagraphsForSectionId(
+    req.query.id, req.query.language
+  );
+  res.json(paragraphs || []);
+};
+
 export {
   fullInfoForUrl,
   workSectionAndParagraphForId,
@@ -102,8 +127,11 @@ export {
   urlForId,
   workNames,
   sectionNamesForWork,
+  sectionInfoForWork,
+  sectionIdAndNameForWork,
   urlForWork,
   subsectionUrlForWork,
   urlForWorkAndSection,
-  paragraphsForWorkAndSection
+  paragraphsForWorkAndSection,
+  paragraphsForSectionId
 };

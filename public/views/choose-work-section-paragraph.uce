@@ -38,7 +38,7 @@ export default {
   },
   setup (elem) {
     const sectionsForWorkURL = () => {
-      return './sectionNamesForWork?work=' + encodeURIComponent(elem.work);
+      return './sectionIdAndNameForWork?work=' + encodeURIComponent(elem.work);
     };
     const displayError = (slot, message, hideSelector = 'fetch-select') => {
       const b = document.createElement('b');
@@ -70,21 +70,20 @@ export default {
         this.style.display = 'initial';
       },
       async setupParagraph ({detail}) {
-        elem.section = detail.value;
+        elem.section = detail.selectedOption.textContent;
+        elem.sectionID = detail.value;
         // Could instead do a URL-driven input box like we do for
         //   URL-driving select
-        const {work, section} = elem;
+        const {sectionID} = elem;
         const paragraphs = await (await fetch(
-          `paragraphsForWorkAndSection?${new URLSearchParams({
-            work,
-            section
+          `paragraphsForSectionId?${new URLSearchParams({
+            id: sectionID
           })}`
         )).json();
         if (!paragraphs.length) {
           const url = await (await fetch(
-            `urlForWorkAndSection?${new URLSearchParams({
-              work,
-              section
+            `urlForId?${new URLSearchParams({
+              id: sectionID
             })}`
           )).json();
           if (!url) {

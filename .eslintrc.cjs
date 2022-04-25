@@ -29,6 +29,7 @@ module.exports = {
   settings: {
     'html/html-extensions': ['.html', '.htm', '.uce'],
     polyfills: [
+      'Array.isArray',
       'console',
       'CustomEvent',
       'document.body',
@@ -40,6 +41,7 @@ module.exports = {
       'Map',
       'Number.isNaN',
       'Number.parseInt',
+      'Object.defineProperty',
       'Object.entries',
       'Object.fromEntries',
       'Promise',

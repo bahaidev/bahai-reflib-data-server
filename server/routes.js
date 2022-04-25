@@ -8,10 +8,13 @@ import {
   urlForId,
   workNames,
   sectionNamesForWork,
+  sectionInfoForWork,
+  sectionIdAndNameForWork,
   urlForWork,
   subsectionUrlForWork,
   urlForWorkAndSection,
-  paragraphsForWorkAndSection
+  paragraphsForWorkAndSection,
+  paragraphsForSectionId
 } from './controllers.js';
 
 /**
@@ -30,10 +33,13 @@ function routes (app, basePath = '') {
     infoForId,
     workNames,
     sectionNamesForWork,
+    sectionInfoForWork,
+    sectionIdAndNameForWork,
     urlForWork,
     subsectionUrlForWork,
     urlForWorkAndSection,
-    paragraphsForWorkAndSection
+    paragraphsForWorkAndSection,
+    paragraphsForSectionId
   });
 
   const base = '/' + basePath.replace(/(?<nonslash>[^/])$/u, '$<nonslash>/');

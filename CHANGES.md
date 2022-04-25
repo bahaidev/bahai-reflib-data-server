@@ -1,5 +1,13 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.6.0
+
+- fix: use APIs to get paragraphs or URLs for section IDs
+- fix: issue with retrieving paragraphs
+- fix: first line support
+- chore: updates express and bahai-reflib-data
+- chore: updates devDeps.
+
 ## 0.5.2
 
 - fix: update `bahai-reflib-data`

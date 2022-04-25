@@ -48,12 +48,17 @@ export default {
         ...jsonOptions.sort((a, b) => {
           // Sort so that an underdotted "H" is treated more like an "H"
           const form = 'NFD';
-          const normA = a.normalize(form);
-          const normB = b.normalize(form);
+          const normA = (Array.isArray(a) ? a[1] : a).normalize(form);
+          const normB = (Array.isArray(b) ? b[1] : b).normalize(form);
           return normA < normB ? -1 : normA > normB ? 1 : 0;
         }).map((jsonOption) => {
           const option = document.createElement('option');
-          option.textContent = jsonOption;
+          if (Array.isArray(jsonOption)) {
+            option.value = jsonOption[0];
+            option.textContent = jsonOption[1];
+          } else {
+            option.textContent = jsonOption;
+          }
           return option;
         })
       );
@@ -63,7 +68,12 @@ export default {
     };
 
     elem.update = update;
-
+    Object.defineProperty(elem, 'selectedOption', {
+      get () {
+        const select = elem.shadowRoot.querySelector('select');
+        return select.options[select.selectedIndex];
+      }
+    });
     elem.connected = () => {
       // We apparently can't get our slots without shadow DOM, but they need
       //   copying too

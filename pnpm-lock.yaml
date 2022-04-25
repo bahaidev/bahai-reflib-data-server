@@ -3,7 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@brettz9/eslint-plugin': ^1.0.4
   '@rollup/plugin-node-resolve': ^13.2.1
-  bahai-reflib-data: ^0.9.4
+  bahai-reflib-data: ^0.10.0
   body-parser: ^1.20.0
   eslint: ^8.14.0
   eslint-config-ash-nazg: 33.1.0
@@ -28,7 +28,7 @@ specifiers:
   uhtml: ^2.8.1
 
 dependencies:
-  bahai-reflib-data: 0.9.4
+  bahai-reflib-data: 0.10.0
   body-parser: 1.20.0
   express: 4.17.3
   uce-loader: 2.0.0
@@ -1458,9 +1458,9 @@ packages:
       - supports-color
     dev: false
 
-  /bahai-reflib-data/0.9.4:
-    resolution: {integrity: sha512-J3/HdIWiAbtqBldbFUA5fvIsEGJs+z9c64/gtUQBaB+jaAL4yzO0ZQimbIHC+jobtC99pvhXVgcEIlyEFenMGA==}
-    engines: {node: '>=12.0.0'}
+  /bahai-reflib-data/0.10.0:
+    resolution: {integrity: sha512-uuYgAKQ1JL2m0YUSWcefdAFimA2nN1HnEKWUsJ9kH5UwSlzCoYU1N/d/uBjA6YQLiy0Cpk88w+Pe2QCYBrZ1FA==}
+    engines: {node: '>=14.0.0'}
     dependencies:
       file-fetch: 1.7.0
     transitivePeerDependencies:

@@ -1,5 +1,9 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.5.2
+
+- fix: update `bahai-reflib-data`
+
 ## 0.5.1
 
 - fix: update `bahai-reflib-data`

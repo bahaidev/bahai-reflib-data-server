@@ -1,6 +1,6 @@
 {
   "name": "bahai-reflib-data-server",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "author": "Brett Zamir <brettz9@yahoo.com>",
   "contributors": [],
   "description": "A service and web app for retrieving data out of the Bahá'í Reference Library",
@@ -58,7 +58,7 @@
     "uhtml": "^2.8.1"
   },
   "dependencies": {
-    "bahai-reflib-data": "^0.9.4",
+    "bahai-reflib-data": "^0.10.0",
     "body-parser": "^1.20.0",
     "express": "^4.17.3",
     "uce-loader": "^2.0.0",

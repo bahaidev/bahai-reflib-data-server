@@ -1,5 +1,9 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.7.1
+
+- chore: remove devDeps.
+
 ## 0.7.0
 
 - feat: allow for custom fetch routines

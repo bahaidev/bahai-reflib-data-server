@@ -1,6 +1,6 @@
 {
   "name": "bahai-reflib-data-server",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "author": "Brett Zamir <brettz9@yahoo.com>",
   "contributors": [],
   "description": "A service and web app for retrieving data out of the Bahá'í Reference Library",
@@ -17,7 +17,6 @@
   "scripts": {
     "copy": "cp node_modules/uhtml/esm.js public/vendor/uhtml/esm.js",
     "build-import-map": "echo 'Might use this to support npm package imports; needs package lock' && npm i && npx importly < package-lock.json > importmap.json",
-    "rollup": "rollup -c",
     "start": "./server.js",
     "eslint": "eslint --ext=js,cjs,mjs,md,html .",
     "lint": "npm run eslint",
@@ -37,7 +36,6 @@
   },
   "devDependencies": {
     "@brettz9/eslint-plugin": "^1.0.4",
-    "@rollup/plugin-node-resolve": "^13.2.1",
     "eslint": "^8.14.0",
     "eslint-config-ash-nazg": "33.1.0",
     "eslint-config-standard": "^17.0.0",
@@ -54,7 +52,6 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-sonarjs": "^0.13.0",
     "eslint-plugin-unicorn": "^42.0.0",
-    "rollup": "^2.70.2",
     "uhtml": "^2.8.1"
   },
   "dependencies": {

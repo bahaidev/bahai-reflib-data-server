@@ -18,16 +18,10 @@ module.exports = {
         document: true,
         fetch: true
       }
-    },
-    {
-      files: '*.uce',
-      rules: {
-        'import/no-anonymous-default-export': 'off'
-      }
     }
   ],
   settings: {
-    'html/html-extensions': ['.html', '.htm', '.uce'],
+    'html/html-extensions': ['.html', '.htm'],
     polyfills: [
       'Array.isArray',
       'console',

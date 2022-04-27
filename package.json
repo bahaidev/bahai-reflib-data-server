@@ -19,7 +19,7 @@
     "build-import-map": "echo 'Might use this to support npm package imports; needs package lock' && npm i && npx importly < package-lock.json > importmap.json",
     "rollup": "rollup -c",
     "start": "./server.js",
-    "eslint": "eslint --ext=js,cjs,mjs,md,html,uce .",
+    "eslint": "eslint --ext=js,cjs,mjs,md,html .",
     "lint": "npm run eslint",
     "mocha": "mocha",
     "test": "c8 npm run mocha"
@@ -55,8 +55,6 @@
     "eslint-plugin-sonarjs": "^0.13.0",
     "eslint-plugin-unicorn": "^42.0.0",
     "rollup": "^2.70.2",
-    "uce-loader": "^2.0.0",
-    "uce-template": "^0.7.1",
     "uhtml": "^2.8.1"
   },
   "dependencies": {

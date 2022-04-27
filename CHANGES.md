@@ -1,5 +1,9 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.8.0
+
+- feat: allow `redirectHandler` for custom redirecting
+
 ## 0.7.1
 
 - chore: remove devDeps.

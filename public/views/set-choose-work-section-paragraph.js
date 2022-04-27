@@ -61,15 +61,19 @@ function badLoadWorks ({target}) {
  *   urlForIdFetch: JsonFetcher,
  *   idForWorkSectionAndParagraphFetch: JsonFetcher,
  *   subsectionUrlForWorkFetch: JsonFetcher,
- *   urlForWorkFetch: JsonFetcher
+ *   urlForWorkFetch: JsonFetcher,
+ *   redirectHandler: (string) => void
  * }} obj
  * @returns {ChooseWorkSectionParagraph}
  */
 function setChooseWorkSectionParagraph ({
   workNamesFetch, setupSectionFetch, paragraphsForSectionIdFetch,
   urlForIdFetch, idForWorkSectionAndParagraphFetch,
-  subsectionUrlForWorkFetch, urlForWorkFetch
+  subsectionUrlForWorkFetch, urlForWorkFetch, redirectHandler
 } = {}) {
+  const redirector = redirectHandler || ((str) => {
+    location.href = str;
+  });
   /**
    *
    */
@@ -232,7 +236,7 @@ function setChooseWorkSectionParagraph ({
           );
           return;
         }
-        location.href = url;
+        redirector(url);
         return;
       }
 
@@ -279,7 +283,7 @@ function setChooseWorkSectionParagraph ({
 
       const redirect = this.hasAttribute('redirect');
       if (redirect) {
-        location.href = `https://bahai.org/r/${id}`;
+        redirector(`https://bahai.org/r/${id}`);
       } else {
         this.id = id;
         target.parentNode.dispatchEvent(new Event('id-display'));
@@ -335,7 +339,7 @@ function setChooseWorkSectionParagraph ({
         return;
       }
 
-      location.href = url;
+      redirector(url);
     }
   }
 

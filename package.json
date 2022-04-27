@@ -55,13 +55,13 @@
     "eslint-plugin-sonarjs": "^0.13.0",
     "eslint-plugin-unicorn": "^42.0.0",
     "rollup": "^2.70.2",
+    "uce-loader": "^2.0.0",
+    "uce-template": "^0.7.1",
     "uhtml": "^2.8.1"
   },
   "dependencies": {
     "bahai-reflib-data": "^0.11.0",
     "body-parser": "^1.20.0",
-    "express": "^4.18.0",
-    "uce-loader": "^2.0.0",
-    "uce-template": "^0.7.1"
+    "express": "^4.18.0"
   }
 }

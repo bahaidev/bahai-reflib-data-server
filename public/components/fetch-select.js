@@ -113,27 +113,32 @@ class FetchSelect extends HTMLElement {
     }
 
     const select = this.shadowRoot.querySelector('select');
-    select.textContent = '';
-    select.append(
-      ...[...this.querySelectorAll('option')].map((option) => {
-        return option.cloneNode(true);
-      }),
-      ...jsonOptions.sort((a, b) => {
-        // Sort so that an underdotted "H" is treated more like an "H"
-        const form = 'NFD';
-        const normA = (Array.isArray(a) ? a[1] : a).normalize(form);
-        const normB = (Array.isArray(b) ? b[1] : b).normalize(form);
-        return normA < normB ? -1 : normA > normB ? 1 : 0;
-      }).map((jsonOption) => {
-        const option = document.createElement('option');
-        if (Array.isArray(jsonOption)) {
-          option.value = jsonOption[0];
-          option.textContent = jsonOption[1];
-        } else {
-          option.textContent = jsonOption;
-        }
-        return option;
-      })
+    render(
+      select, html`
+      ${
+  [...this.querySelectorAll('option')].map((option) => {
+    return option.cloneNode(true);
+  })
+}
+      ${
+  jsonOptions.sort((a, b) => {
+    // Sort so that an underdotted "H" is treated more like an "H"
+    const form = 'NFD';
+    const normA = (Array.isArray(a) ? a[1] : a).normalize(form);
+    const normB = (Array.isArray(b) ? b[1] : b).normalize(form);
+    return normA < normB ? -1 : normA > normB ? 1 : 0;
+  }).map((jsonOption) => {
+    const option = document.createElement('option');
+    if (Array.isArray(jsonOption)) {
+      option.value = jsonOption[0];
+      option.textContent = jsonOption[1];
+    } else {
+      option.textContent = jsonOption;
+    }
+    return option;
+  })
+}
+      `
     );
     // console.log('json', jsonOptions, elem.outerHTML);
 

@@ -16,9 +16,6 @@ function sectionsForWorkURL () {
  * @returns {void}
  */
 function displayError (slot, message, hideSelector = 'fetch-select') {
-  const b = document.createElement('b');
-  b.textContent = message +
-    ' Try to refresh upon a good connection.';
   const errorDisplay = slot.querySelector('.errorDisplay');
 
   // Hide current select; subsequent should already be hidden
@@ -26,8 +23,9 @@ function displayError (slot, message, hideSelector = 'fetch-select') {
   // But ensure our slot is showing
   slot.style.display = 'initial';
 
-  errorDisplay.textContent = '';
-  errorDisplay.append(b);
+  render(errorDisplay, html`
+    <b>${message} Try to refresh upon a good connection.</b>
+  `);
 }
 
 /**
@@ -84,24 +82,32 @@ class ChooseWorkSectionParagraph extends HTMLElement {
    * @returns {Hole}
    */
   template () {
+    const chooseWork = html`<fetch-select class="chooseWork" url="./workNames">
+      <option value="">(Choose work)</option>
+    </fetch-select>`;
+    const chooseWorkContainer = document.createElement('div');
+    render(chooseWorkContainer, chooseWork);
+
+    const chooseSection = html`<fetch-select class="chooseSection"
+        url="">
+      <option value="">(Choose section)</option>
+    </fetch-select>`;
+    const chooseSectionContainer = document.createElement('div');
+    render(chooseSectionContainer, chooseSection);
+
     return html`
     <div>
       <form-control-steps default-trigger="change">
         <label slot="step" data-default="true"
           onmissing-options="${badLoadWorks}">
           <div class="errorDisplay"></div>
-          <fetch-select class="chooseWork" url="./workNames">
-            <option value="">(Choose work)</option>
-          </fetch-select>
+          ${chooseWorkContainer.firstElementChild}
         </label>
 
         <label slot="step" ontrigger-step=${this.setupSection.bind(this)}
           onmissing-options="${this.noSectionsForWork.bind(this)}">
           <div class="errorDisplay"></div>
-          <fetch-select class="chooseSection"
-              url="">
-            <option value="">(Choose section)</option>
-          </fetch-select>
+          ${chooseSectionContainer.firstElementChild}
         </label>
 
         <label slot="step"
@@ -179,13 +185,12 @@ class ChooseWorkSectionParagraph extends HTMLElement {
     }
 
     target.style.display = 'initial';
-    target.querySelector('datalist#paragraphChoices').append(
-      ...paragraphs.map((paragraph) => {
-        const option = document.createElement('option');
-        option.textContent = paragraph;
-        return option;
-      })
-    );
+    const paragraphChoices = target.querySelector('datalist#paragraphChoices');
+    render(paragraphChoices, html`
+      ${paragraphs.map((paragraph) => {
+    return html`<option>${paragraph}</option>`;
+  })}
+    `);
   }
 
   /**
@@ -231,14 +236,11 @@ class ChooseWorkSectionParagraph extends HTMLElement {
    */
   setupIDDisplay ({target}) {
     const idDisplay = target.querySelector('.idDisplay');
-    idDisplay.textContent = '';
-    const b = document.createElement('b');
-    b.textContent = 'ID';
-    const a = document.createElement('a');
+
     const {id} = this;
-    a.href = `https://bahai.org/r/${id}`;
-    a.textContent = id;
-    idDisplay.append(b, `: `, a);
+    render(idDisplay, html`
+      <b>ID</b>: <a href=${`https://bahai.org/r/${id}`}>${id}</a>
+    `);
     target.style.display = 'initial';
   }
 

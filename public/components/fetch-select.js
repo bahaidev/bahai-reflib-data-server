@@ -86,14 +86,14 @@ class FetchSelect extends HTMLElement {
    * @returns {Promise<boolean>}
    */
   async update () {
-    const {url} = this;
+    const {url, customFetch} = this;
     if (!url) {
       return false;
     }
 
     let jsonOptions = [];
     try {
-      const resp = await fetch(url);
+      const resp = await (customFetch ? customFetch(url) : fetch(url));
       jsonOptions = await resp.json();
     } catch (err) {
       // eslint-disable-next-line no-console -- Debugging

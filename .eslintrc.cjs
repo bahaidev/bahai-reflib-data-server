@@ -21,6 +21,9 @@ module.exports = {
     }
   ],
   settings: {
+    jsdoc: {
+      mode: 'typescript'
+    },
     'html/html-extensions': ['.html', '.htm'],
     polyfills: [
       'Array.isArray',

@@ -1,6 +1,7 @@
 import {render, html} from './vendor/uhtml/esm.js';
 
-import './views/choose-work-section-paragraph.js';
+import setChooseWorkSectionParagraph from
+  './views/set-choose-work-section-paragraph.js';
 
 import workSectionAndParagraphForId from
   './templates/workSectionAndParagraphForId.js';
@@ -19,6 +20,8 @@ import gotoUrlForId from
 
 import * as apiUrls from './apiUrls.js';
 
+setChooseWorkSectionParagraph();
+
 render(document.body, html`
   <main>
 
@@ -29,7 +32,8 @@ render(document.body, html`
     <!--idForWorkSectionAndParagraph -->
     <fieldset>
       <legend>Visits page based on work, section, and paragraph</legend>
-      <choose-work-section-paragraph redirect></choose-work-section-paragraph>
+      <choose-work-section-paragraph redirect local-fetch>
+      </choose-work-section-paragraph>
     </fieldset>
 
     <!--idForWorkSectionAndParagraph -->

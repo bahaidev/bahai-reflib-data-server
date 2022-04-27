@@ -1,5 +1,9 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.7.0
+
+- feat: allow for custom fetch routines
+
 ## 0.6.0
 
 - fix: use APIs to get paragraphs or URLs for section IDs

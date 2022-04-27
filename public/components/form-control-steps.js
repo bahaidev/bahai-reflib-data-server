@@ -1,37 +1,26 @@
-<form-control-steps shadow>
-  {{error}}
-  {{steps}}
-</form-control-steps>
+import {html, render} from '../vendor/uhtml/esm.js';
 
-<style shadow>
-  /* Todo: Figure out why not working? */
-  ::slotted(*) {
-    /* not apparently working */
-    font-size: 30pt;
-    background-color: yellow;
-  }
-  :not(::slotted([data-default])) {
-    display: none;
+/**
+ *
+ */
+class FormControlSteps extends HTMLElement {
+  /**
+   *
+   */
+  constructor () {
+    super();
+
+    this.attachShadow({mode: 'open'});
   }
 
-  :host label[data-default] {
-    /* background-color: red; */
-  }
-  :host label:not([data-default]) {
-    display: none;
-    /* background-color: blue; */
-  }
-</style>
-
-<script type="module">
-import {slot} from '@uce';
-
-export default {
-  setup (elem) {
-    const {step: steps, error} = slot(elem);
+  /**
+   * @returns {void}
+   */
+  connectedCallback () {
+    const steps = [...this.querySelectorAll('[slot=step]')];
     steps.forEach((step, i) => {
       const ev = step.getAttribute('trigger') ||
-        elem.getAttribute('default-trigger');
+        this.getAttribute('default-trigger');
       step.addEventListener(ev, ({target}) => {
         // Todo: Check instead whether the form control is valid
         // if (!target.value) {
@@ -69,7 +58,50 @@ export default {
         nextStep.dispatchEvent(e);
       }, true);
     });
-    return {steps, error};
+
+    this.steps = steps;
+    this.updateRendering();
   }
-};
-</script>
+
+  /**
+   * @returns {void}
+   */
+  updateRendering () {
+    render(this.shadowRoot, this.template());
+  }
+
+  /**
+   * @returns {Hole}
+   */
+  template () {
+    return html`
+      <div>
+        <style>
+          /* Todo: Figure out why not working? */
+          ::slotted(*) {
+            /* not apparently working */
+            font-size: 30pt;
+            background-color: yellow;
+          }
+          :not(::slotted([data-default])) {
+            display: none;
+          }
+
+          :host label[data-default] {
+            /* background-color: red; */
+          }
+          :host label:not([data-default]) {
+            display: none;
+            /* background-color: blue; */
+          }
+        </style>
+
+        ${this.steps}
+      </div>
+    `;
+  }
+}
+
+customElements.define('form-control-steps', FormControlSteps);
+
+export default FormControlSteps;

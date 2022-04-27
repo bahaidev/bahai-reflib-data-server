@@ -1,5 +1,7 @@
 import {render, html} from './vendor/uhtml/esm.js';
 
+import './views/choose-work-section-paragraph.js';
+
 import workSectionAndParagraphForId from
   './templates/workSectionAndParagraphForId.js';
 import fullInfoForUrl from

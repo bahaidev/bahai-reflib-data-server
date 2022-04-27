@@ -28,9 +28,6 @@
 </choose-work-section-paragraph>
 
 <script type="module">
-import '../components/form-control-steps.uce';
-import '../components/fetch-select.uce';
-
 export default {
   props: {
     work: '',

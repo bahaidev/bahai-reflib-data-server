@@ -14,5 +14,7 @@ The web-service and web app is currently available at
 
 ## Potential to-dos
 
+1. Add API to redirect directly to site (and URL-with-ID to
+    work-section-paragraph in case already have)
 1. Could make web app version which was entirely offline capable, using
     `bahai-reflib-data`'s browser build and a service worker.

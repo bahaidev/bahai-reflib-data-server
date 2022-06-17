@@ -1,5 +1,9 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.8.2
+
+- fix: update `bahai-reflib-data`
+
 ## 0.8.1
 
 - fix: update `bahai-reflib-data` and `express`

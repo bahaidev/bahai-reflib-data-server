@@ -1,5 +1,10 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.8.1
+
+- fix: update `bahai-reflib-data` and `express`
+- chore: remove devDeps.
+
 ## 0.8.0
 
 - feat: allow `redirectHandler` for custom redirecting

@@ -27,6 +27,7 @@ module.exports = {
     'html/html-extensions': ['.html', '.htm'],
     polyfills: [
       'Array.isArray',
+      'Array.map',
       'console',
       'CustomEvent',
       'document.body',

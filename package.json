@@ -1,6 +1,6 @@
 {
   "name": "bahai-reflib-data-server",
-  "version": "0.8.2",
+  "version": "0.9.0",
   "author": "Brett Zamir <brettz9@yahoo.com>",
   "contributors": [],
   "description": "A service and web app for retrieving data out of the Bahá'í Reference Library",
@@ -36,27 +36,27 @@
   },
   "devDependencies": {
     "@brettz9/eslint-plugin": "^1.0.4",
-    "eslint": "^8.17.0",
-    "eslint-config-ash-nazg": "33.1.0",
+    "eslint": "^8.37.0",
+    "eslint-config-ash-nazg": "34.9.1",
     "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-array-func": "^3.1.7",
-    "eslint-plugin-compat": "^4.0.2",
+    "eslint-plugin-array-func": "^3.1.8",
+    "eslint-plugin-compat": "^4.1.4",
     "eslint-plugin-eslint-comments": "^3.2.0",
-    "eslint-plugin-html": "^6.2.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^39.3.2",
-    "eslint-plugin-markdown": "^2.2.1",
-    "eslint-plugin-n": "^15.2.3",
-    "eslint-plugin-no-unsanitized": "^4.0.1",
+    "eslint-plugin-html": "^7.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsdoc": "^40.1.1",
+    "eslint-plugin-markdown": "^3.0.0",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-no-unsanitized": "^4.0.2",
     "eslint-plugin-no-use-extend-native": "^0.5.0",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-sonarjs": "^0.13.0",
-    "eslint-plugin-unicorn": "^42.0.0",
-    "uhtml": "^3.0.1"
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-sonarjs": "^0.19.0",
+    "eslint-plugin-unicorn": "^46.0.0",
+    "uhtml": "^3.1.0"
   },
   "dependencies": {
-    "bahai-reflib-data": "^0.12.2",
-    "body-parser": "^1.20.0",
-    "express": "^4.18.1"
+    "bahai-reflib-data": "^0.13.0",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
   }
 }

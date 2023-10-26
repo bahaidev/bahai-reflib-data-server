@@ -7,7 +7,7 @@ import routes from './routes.js';
  * @param {string} cfg.statik
  * @param {object} cfg.statikOptions
  * @param {string} cfg.urlRelativePath
- * @param {object} [cfg.app=express()]
+ * @param {object} [cfg.app]
  * @returns {ExpressApp}
  */
 function createServer ({

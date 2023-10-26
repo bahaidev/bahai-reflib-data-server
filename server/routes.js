@@ -19,7 +19,7 @@ import {
 
 /**
  * @param {ExpressApp} app
- * @param {string} [basePath=""]
+ * @param {string} [basePath]
  * @returns {void}
  */
 function routes (app, basePath = '') {

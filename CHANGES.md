@@ -1,5 +1,10 @@
 # CHANGES for `bahai-reflib-data-server`
 
+## 0.10.0
+
+- chore: update devDeps.
+- chore: update `bahai-reflib-data`
+
 ## 0.9.0
 
 - fix: update `bahai-reflib-data`, `body-parser`, `express`

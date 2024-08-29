@@ -2,3 +2,4 @@
 coverage
 test
 pnpm-lock.yaml
+eslint.config.js

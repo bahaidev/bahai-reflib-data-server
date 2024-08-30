@@ -1,7 +1,8 @@
 # CHANGES for `bahai-reflib-data-server`
 
-## ?
+## 0.12.0
 
+- chore: update `bahai-reflib-data`
 - chore: update express, devDeps.
 
 ## 0.11.0

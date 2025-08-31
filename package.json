@@ -35,13 +35,13 @@
     "node": ">=18.0.0"
   },
   "devDependencies": {
-    "eslint": "^9.9.1",
-    "eslint-config-ash-nazg": "36.13.0",
+    "eslint": "^9.34.0",
+    "eslint-config-ash-nazg": "39.0.1",
     "uhtml": "^3.2.2"
   },
   "dependencies": {
     "bahai-reflib-data": "^0.16.0",
-    "body-parser": "^1.20.2",
-    "express": "^4.19.2"
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0"
   }
 }
